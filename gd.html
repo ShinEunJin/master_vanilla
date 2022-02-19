@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link ref="stylesheet" href="./styles.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <ul class="route-list">
+            <li route="/page1">Page1</li>
+            <li route="/page2">Page2</li>
+            <li route="/page3">Page3</li>
+            <li route="/page4">Page4</li>
+        </ul>
+        <div id="root"></div>
+    </nav>
+    <script>
+        const renderHTML = (element, route) => {
+            element.innerHTML = route
+        }
+
+        const historyRoutePush = (pathName, element) => {
+            window.history.pushState({}, pathName, window.location.origin + pathName)
+            renderHTML(element, pathName)
+        }
+
+        window.onload = () => {
+            const historyLinker = document.querySelectorAll('li')
+            const content = document.querySelector('#root')
+            historyLinker.forEach(page => {
+                page.addEventListener('click', e => {
+                    const pathName = e.target.getAttribute('route')
+                    historyRoutePush(pathName, content)
+                })
+            })
+
+        }
+    </script>
+</body>
+
+</html>
