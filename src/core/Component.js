@@ -1,6 +1,4 @@
 export default class Component {
-    $target
-    $state
     constructor($target) {
         this.$target = $target
         this.setup()
