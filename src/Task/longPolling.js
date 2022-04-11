@@ -1,6 +1,7 @@
 const fetchBtn = document.querySelector('.fetchBtn')
 const checkBtn = document.querySelector('.checkBtn')
 const resetBtn = document.querySelector('.resetBtn')
+const startBtn = document.querySelector('.startLongPolling')
 
 const fetchData = async () => {
     try {
@@ -33,6 +34,33 @@ const resetData = async () => {
     }
 }
 
+const controller = new AbortController()
+const abortBtn = document.querySelector('.abortFetch')
+
+const longPollingStart = async () => {
+    while (true) {
+        let occurErr = false
+        console.log('start requesting')
+        try {
+            let response = await fetch('http://localhost:5000/longPolling', { signal: controller.signal })
+            let data = await response.json()
+            console.log('data', data)
+        } catch (error) {
+            console.log('error', error)
+            occurErr = true
+        }
+        if (occurErr) {
+            break
+        }
+    }
+}
+
+abortBtn.addEventListener('click', () => {
+    controller.abort()
+    console.log('abort')
+})
+
 fetchBtn.addEventListener('click', () => { fetchData() })
 checkBtn.addEventListener('click', () => { checkData() })
 resetBtn.addEventListener('click', () => { resetData() })
+startBtn.addEventListener('click', () => { longPollingStart() })
