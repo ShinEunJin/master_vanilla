@@ -64,3 +64,5 @@ fetchBtn.addEventListener('click', () => { fetchData() })
 checkBtn.addEventListener('click', () => { checkData() })
 resetBtn.addEventListener('click', () => { resetData() })
 startBtn.addEventListener('click', () => { longPollingStart() })
+
+// const setDate = (item) => console.log('언제 만날까요?' + " " + item + " " + this.d
