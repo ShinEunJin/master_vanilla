@@ -32,6 +32,7 @@ boxWrap.style.height = "300px";
 boxWrap.style.position = "absolute";
 boxWrap.style.zIndex = 2;
 boxWrap.style.textAlign = "center";
+boxWrap.style.overflow = "hidden";
 
 leftArrow.src = "bottomArrow.png";
 leftArrow.style.transform = "rotate(90deg)";

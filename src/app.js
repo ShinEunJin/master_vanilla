@@ -1,10 +1,3 @@
-import Items from './components/Items.js'
+const App = document.getElementById("app");
 
-class App {
-    constructor() {
-        const $app = document.querySelector('#app')
-        new Items($app)
-    }
-}
-
-new App()
+window.addEventListener("load", () => console.log("hihi"));
