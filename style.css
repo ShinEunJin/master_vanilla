@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  padding-top: 200px;
+  padding-left: 200px;
+}
+
+.wrapper {
+  width: fit-content;
+}
+
+.box {
+  width: 150px;
+  border: 1px solid black;
+}
+
+.box ul {
+  display: table;
+  width: 900px;
+  table-layout: fixed;
+  height: 150px;
+}
+
+.box li {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  list-style: none;
+}
+
+.arrow {
+  cursor: pointer;
+}

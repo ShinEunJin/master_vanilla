@@ -2,13 +2,28 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" type="text/css" />
     <title>Document</title>
   </head>
 
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div class="wrapper">
+        <button data-action="prev" class="arrow">prev</button>
+        <div class="box">
+          <ul>
+            <li><span>1</span></li>
+            <li><span>2</span></li>
+            <li><span>3</span></li>
+            <li><span>4</span></li>
+            <li><span>5</span></li>
+            <li><span>6</span></li>
+          </ul>
+        </div>
+        <button data-action="next" class="arrow">next</button>
+      </div>
+    </div>
     <script type="module" src="./src/app.js"></script>
   </body>
 </html>

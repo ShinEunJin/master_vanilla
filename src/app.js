@@ -1,30 +1,33 @@
-const Page = `<h1>Page</h1>`;
+const wrapper = document.querySelector(".wrapper");
+const list = wrapper.querySelector("ul");
 
-const app = document.getElementById("app");
+list.style.transform = "translate(-150px)";
+list.prepend(list.removeChild(list.lastElementChild));
 
-const home = document.createElement("h1");
-home.innerText = "Home";
-app.appendChild(home);
-
-const page = document.createElement("span");
-page.style.cursor = "pointer";
-page.setAttribute("route", "page");
-page.innerText = "page";
-app.appendChild(page);
-
-window.onload = () => {
-  page.addEventListener("click", (e) => {
-    const path = e.target.getAttribute("route");
-
-    window.history.pushState(
-      { page: 1 },
-      path,
-      `${window.location.origin}/${path}`
+const slide = (dirt) => {
+  if (dirt === "next") {
+    const animation = list.animate(
+      [
+        { transform: "translateX(-150px)" },
+        { transform: "translateX(-300px)" },
+      ],
+      200
     );
-    app.innerHTML = Page;
-  });
-
-  window.addEventListener("popstate", (e) => {
-    console.log(window.history);
-  });
+    animation.onfinish = () => {
+      list.appendChild(list.removeChild(list.firstElementChild));
+    };
+  } else {
+    const animation = list.animate(
+      [{ transform: "translateX(-150px)" }, { transform: "translateX(0px)" }],
+      200
+    );
+    animation.onfinish = () => {
+      list.prepend(list.removeChild(list.lastElementChild));
+    };
+  }
 };
+
+wrapper.addEventListener("click", (event) => {
+  const dirt = event.target.dataset.action;
+  if (dirt) slide(dirt);
+});
