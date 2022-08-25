@@ -1,27 +1,41 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    36deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(13, 74, 87, 1) 100%
+  );
 }
 
 #app {
-  padding-top: 200px;
-  padding-left: 200px;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 10px;
 }
 
 .wrapper {
-  width: fit-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 960px;
+  height: 900px;
 }
 
 .box {
-  width: 150px;
-  border: 1px solid black;
+  overflow: hidden;
 }
 
 .box ul {
   display: table;
-  width: 900px;
   table-layout: fixed;
-  height: 150px;
 }
 
 .box li {
@@ -31,6 +45,13 @@
   list-style: none;
 }
 
+.box li img {
+  object-fit: contain;
+}
+
 .arrow {
   cursor: pointer;
+  display: block;
+  height: 50px;
+  width: 50px;
 }
