@@ -1,4 +1,5 @@
 import ContentTitle from "../components/ContentTitle.js";
+import SignupView from "../components/SignupView.js";
 
 class SignupPage {
   constructor(main) {
@@ -9,6 +10,9 @@ class SignupPage {
   render() {
     const contentTitle = new ContentTitle(this.$main, this.$title);
     contentTitle.render();
+
+    const formContainer = new SignupView(this.$main);
+    formContainer.render();
   }
 }
 

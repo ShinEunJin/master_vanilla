@@ -40,6 +40,10 @@ class Card {
     );
 
     if (getLocalStorage(CARD_STATUS)) {
+      if (getLocalStorage(CARD_STATUS).includes(this.info.idx)) {
+        card.classList.toggle("is-flipped");
+      }
+
       card.addEventListener("click", (e) => {
         e.currentTarget.classList.toggle("is-flipped");
         this.setCardStatus(Number(e.currentTarget.attributes.idx.nodeValue));
